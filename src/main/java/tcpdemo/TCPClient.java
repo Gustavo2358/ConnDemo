@@ -13,18 +13,18 @@ public class TCPClient {
         BufferedReader reader = new BufferedReader(is);
         BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
 
-        writer.writeBytes("JOIN");
+        writer.writeBytes("JOIN\n");
         String joinResponse = reader.readLine();
-        System.out.println("resposta do servidor" + joinResponse);
-        if(joinResponse.equals("OK"));
-            System.out.println("Conexão estabelecida");
+        System.out.println("resposta do servidor " + joinResponse);
+        if(joinResponse.equals("OK"))
+            System.out.println("Conexão estabelecida ");
 
         String texto;
         while(true) {
             System.out.println("Digite uma palavra: ");
             texto = inFromUser.readLine();
-            if(texto.equals("quit")) break;
             writer.writeBytes(texto + "\n");
+            if(texto.equals("quit")) break;
             String reponse = reader.readLine();
             System.out.println("Do servidor: " + reponse);
         }

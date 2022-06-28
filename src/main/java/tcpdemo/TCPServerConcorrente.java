@@ -30,6 +30,6 @@ public class TCPServerConcorrente {
         OutputStream os = no.getOutputStream();
         DataOutputStream writer = new DataOutputStream(os);
         if(texto.equals("JOIN"))
-            writer.writeBytes("OK");
+            writer.writeBytes("OK\n");
     }
 }
